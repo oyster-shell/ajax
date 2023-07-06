@@ -4,9 +4,8 @@ class TodosController < ApplicationController
   end
 
   def create
-    todo = Todo.new(todo_params)
-    todo.save
-    redirect_to root_path
+    @todo = Todo.new(todo_params)
+    @todo.save
   end
 
   def update

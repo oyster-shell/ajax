@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="mt-5 mb-3">ToDo作成</h1>
+  <%= form_with model: Todo.new, local: true do |f| %>
+    <div class="row">
+      <div class="col-10">
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="col-2">
+        <%= f.submit '作成', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+
+  <h1 class="mt-5 mb-2">ToDo一覧</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">タイトル</th>
+        <th scope="col">状態</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @todos.each do |todo| %>
+        <%= render 'row', { todo: todo } %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

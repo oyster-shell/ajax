@@ -1,0 +1,15 @@
+<tr>
+  <th scope="row"><%= todo.id %></th>
+  <td><%= todo.title %></td>
+  <td><%= todo.is_done ? '完了' : '未完了' %></td>
+  <td>
+    <div class="d-flex justify-content-around">
+      <% if todo.is_done %>
+        <%= button_to '戻す', todo_path(todo), method: :patch, class: 'btn btn-info text-light', local: true %>
+      <% else %>
+        <%= button_to '完了', todo_path(todo), method: :patch, class: 'btn btn-success', local: true %>
+      <% end %>
+      <%= button_to '削除', todo_path(todo), method: :delete, class: 'btn btn-danger', local: true %>
+    </div>
+  </td>
+</tr>

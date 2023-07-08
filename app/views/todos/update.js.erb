@@ -1,0 +1,9 @@
+todoId = $("tr#todo_<%= @todo.id %>")
+
+todoId.find('td:eq(1)').text('<%= @todo.is_done ? '完了' : '未完了' %>');
+
+<% if @todo.is_done.present? %>
+  todoId.find('input.btn-success').val("戻す").removeClass('btn-success').addClass('btn-info text-light');
+<% else %>
+  todoId.find('input.btn-info').val("完了").removeClass('btn-info text-light').addClass('btn-success');
+<% end %>

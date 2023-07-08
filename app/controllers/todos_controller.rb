@@ -9,19 +9,17 @@ class TodosController < ApplicationController
   end
 
   def update
-    todo = Todo.find(params[:id])
-    if todo.is_done
-      todo.update(is_done: false)
+    @todo = Todo.find(params[:id])
+    if @todo.is_done
+      @todo.update(is_done: false)
     else
-      todo.update(is_done: true)
+      @todo.update(is_done: true)
     end
-    redirect_to root_path
   end
 
   def destroy
-    todo = Todo.find(params[:id])
-    todo.destroy
-    redirect_to root_path
+    @todo = Todo.find(params[:id])
+    @todo.destroy
   end
 
   private
